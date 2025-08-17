@@ -255,26 +255,23 @@
     }
 
     @media (max-width: 768px) {
-        
         body {
-            padding-left: 0;
-            padding-right: 0;
+            padding: 0;
+            margin: 0;
         }
-
         
-        header,
-        footer {
-            padding-left: 0;
-            padding-right: 0;
+        header, footer {
+            padding: 20px 0 !important;
+            margin-left: 0;
+            margin-right: 0;
+            width: 100%;
         }
-
         
         .journal-header,
         .container {
             margin-left: 12px;
             margin-right: 12px;
         }
-
         
         .journal-header {
             flex-direction: column;
@@ -296,20 +293,6 @@
         .right-box {
             width: 100%;
             margin-top: 20px;
-        }
-    }
-
-    
-    @media (max-width: 600px) {
-        .header-inner {
-            flex-direction: row;
-            align-items: center;
-            text-align: left;
-            gap: 12px; 
-        }
-        .header-text {
-            align-items: flex-start;
-            text-align: left;
         }
     }
 
