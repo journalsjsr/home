@@ -35,8 +35,10 @@
         box-shadow: 0 2px 6px rgba(0,0,0,0.1);
     }
     .journal-cover {
-        width: 160px;
+        max-width: 160px;
+        width: 100%;
         height: auto;
+        object-fit: contain;
     }
     .journal-info {
         flex: 1;
@@ -250,6 +252,40 @@
         display: block;
         margin: 10px auto;
         padding-bottom: 15px;
+    }
+
+    @media (max-width: 768px) {
+        .journal-header {
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        .journal-cover {
+            width: 100%;
+            max-width: 250px;
+            height: auto;
+        }
+        .journal-info {
+            text-align: center;
+        }
+
+        .container {
+            flex-direction: column;
+        }
+        .right-box {
+            width: 100%;
+            margin-top: 20px;
+        }
+    }
+    @media (max-width: 600px) {
+        .header-inner {
+            flex-direction: column;
+            text-align: center;
+        }
+        .header-text {
+            align-items: center;
+            text-align: center;
+        }
     }
 
 
