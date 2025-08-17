@@ -306,6 +306,22 @@
             width: 100%;
             margin-top: 20px;
         }
+            .tab-menu {
+        flex-wrap: wrap;
+        }
+
+        .tab-menu button {
+            flex: 1 0 calc(33.333% - 10px);
+            min-width: calc(33.333% - 10px);
+            margin: 5px;
+            padding: 12px 5px;
+            font-size: 0.85rem;
+        }
+        
+
+        .tab-menu button.active {
+            border-bottom: 2px solid #801c24;
+        }
     }
 
     @media (max-width: 600px) {
@@ -363,6 +379,7 @@
             <button class="tab-link active" data-tab="articles">Articles</button>
             <button class="tab-link" data-tab="archive">Archive</button>
             <button class="tab-link" data-tab="aims">Aims & Scope</button>
+
             <button class="tab-link" data-tab="guidelines">Guidelines</button>
             <button class="tab-link" data-tab="team">Editorial Team</button>
             <button class="tab-link" data-tab="joinus">Join Us</button>
