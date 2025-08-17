@@ -149,9 +149,10 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        gap: 20px;
-        max-width: 450px;
+        gap: 15px;
+        max-width: none;
         margin: 0 auto;
+        width: fit-content;
     }
 
     header img.logo {
@@ -163,9 +164,20 @@
     .header-text {
         display: flex;
         flex-direction: column;
-        align-items: flex-start;
-        text-align: left;
-        max-width: 700px;
+        justify-content: center;
+    }
+
+    .header-text h1 {
+        white-space: nowrap;
+        font-size: 1.5rem;
+        margin: 0 0 5px 0;
+        line-height: 1.2;
+    }
+
+    .header-text p {
+        margin: 0;
+        line-height: 1.2;
+        font-size: 0.95em;
     }
 
     .article-entry {
@@ -293,6 +305,22 @@
         .right-box {
             width: 100%;
             margin-top: 20px;
+        }
+    }
+
+    @media (max-width: 600px) {
+        .header-inner {
+            gap: 10px;
+            padding: 0 15px;
+        }
+        
+        header img.logo {
+            width: 80px;
+        }
+        
+        .header-text h1 {
+            font-size: 1.3rem;
+            white-space: normal;
         }
     }
 
