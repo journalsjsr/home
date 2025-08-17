@@ -1,256 +1,525 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="icon" href="SJSRLogoT.png" type="image/png">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>STA Journal of Student Research</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
-    <style>
-        body {
-            font-family: "Inter", sans-serif;
-            text-align: center;
-            background-color: #f4f4f4;
-            margin: 0;
-            padding: 0;
-        }
-        header {
-            background-color: #801c24;
-            color: white;
-            padding: 20px 0;
-        }
-        img.logo {
-            width: 150px;
-            margin-top: 10px;
-        }
-        nav {
-            margin: 20px 0;
-        }
-        nav a {
-            margin: 0 15px;
-            text-decoration: none;
-            color: #333;
-            font-weight: bold;
-        }
-        nav a:hover {
-            text-decoration: underline;
-        }
-        .intro-text {
-            margin-left: 20%;
-            margin-right: 20%;
-        }
-        .grey-section {
-            background-color: #e0e0e0;
-            padding: 10px 0;
-            margin-top: 40px;
-        }
-        ul {
-            list-style-type: disc;
-            display: inline-block;
-            text-align: left;
-        }
-        .left-aligned {
-            margin-left: 20%;
-            margin-right: 10%;
-            text-align: left;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>STA Journal of Student Research</title>
+<link rel="icon" href="SJSRLogoT.png" type="image/png">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+<style>
+    body {
+        font-family: "Inter", sans-serif;
+        margin: 0;
+        background: #f4f4f4;
+    }
+    header {
+        background-color: #801c24;
+        color: white;
+        padding: 20px;
+        text-align: center;
+    }
+    header img.logo {
+        width: 150px;
+        display: block;
+        margin: 0 auto 10px;
+    }
+    .journal-header {
+        background: white;
+        padding: 20px;
+        display: flex;
+        gap: 20px;
+        max-width: 1160px;
+        margin: 20px auto;
+        border-radius: 6px;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+    .journal-cover {
+        width: 160px;
+        height: auto;
+    }
+    .journal-info {
+        flex: 1;
+    }
+    .journal-info h1 {
+        color: #801c24;
+        margin: 0;
+    }
+    .journal-info p {
+        margin: 8px 0;
+    }
+    .journal-info a {
+        color: #004276;
+    }
+    .submit-btn {
+        display: inline-block;
+        background: #801c24;
+        color: white;
+        padding: 8px 16px;
+        border-radius: 4px;
+        text-decoration: none;
+        font-weight: bold;
+    }
+    .container {
+        display: flex;
+        gap: 20px;
+        max-width: 1200px;
+        margin: auto;
+    }
+    .main-box {
+        background: white;
+        flex: 1;
+        border-radius: 6px;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+    .tab-menu {
+        display: flex;
+        border-bottom: 3px solid #e0e0e0;
+    }
+    .tab-menu button {
+        flex: 1;
+        padding: 10px;
+        background: #f4f4f4;
+        border: none;
+        cursor: pointer;
+        font-weight: bold;
+    }
+    .tab-menu button.active {
+        background: white;
+        border-bottom: 3px solid #801c24;
+        color: #801c24;
+    }
+    .tab-content {
+        padding: 20px;
+    }
+    .right-box {
+        width: 280px;
+    }
+    .right-section {
+        background: white;
+        margin-bottom: 20px;
+        border-radius: 6px;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+    .right-section h3 {
+        background: #801c24;
+        color: white;
+        padding: 10px;
+        margin: 0;
+        border-radius: 6px 6px 0 0;
+        font-size: 1em;
+    }
+    .right-section ul {
+        list-style: none;
+        margin: 0;
+        padding: 10px;
+    }
+    .right-section ul li a {
+        color: #004276;
+        text-decoration: none;
+    }
+    .right-section ul li {
+        margin-bottom: 8px;
+    }
+    footer {
+        background-color: #21201e;
+        color: white;
+        padding: 30px 20px;
+        text-align: center;
+        margin-top: 40px;
+    }
+    footer img {
+        width: 100px;
+        margin-bottom: 15px;
+    }
+    footer p {
+        margin: 5px 0;
+        font-size: 0.9em;
+        color: #ccc;
+    }
+    header {
+    background-color: #801c24;
+    color: white;
+    padding: 20px;
+    }
 
-        .left-aligned ul {
-            list-style-type: disc;
-            padding-left: 20px;
-        }
-        nav {
-            position: sticky;
-            top: 0;
-            background-color: rgba(255, 255, 255, 0.8);
-            backdrop-filter: blur(5px);
-            padding: 10px 0;
-            z-index: 1000;
-            margin: 0;
-        }
-        html {
-            scroll-behavior: smooth;
-            scroll-padding-top: 40px;
-        }
-        .team-container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 20px;
-            padding: 20px;
-        }
-        .team-member {
-            background-color: white;
-            border-radius: 10px;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-            padding: 15px 20px;
-            width: 250px;
-            text-align: left;
-            }
+    .header-inner {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
+        max-width: 450px;
+        margin: 0 auto;
+    }
 
-        .team-member h3 {
-            margin: 0 0 5px;
-            font-size: 1.2em;
-            font-weight: bold;
-        }
+    header img.logo {
+        width: 100px;
+        height: auto;
+        flex-shrink: 0;
+    }
 
-        .team-member p {
-            margin: 3px 0;
-            font-size: 0.95em;
-        }
+    .header-text {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        text-align: left;
+        max-width: 400px;
+    }
 
-        .team-member .position {
-            color: #555;
-            font-size: 0.9em;
-            font-style: italic;
-        }
-        footer {
-            background-color: #21201e;
-            color: white;
-            padding: 30px 20px;
-            text-align: center;
-            margin-top: 40px;
-        }
+    .article-entry {
+        margin-bottom: 25px;
+        padding-bottom: 15px;
+        border-bottom: 1px solid #ddd;
+    }
 
-        footer img {
-            width: 100px;
-            margin-bottom: 15px;
-        }
+    .article-entry h3 {
+        margin: 0;
+        font-size: 1.1em;
+    }
 
-        footer p {
-            margin: 5px 0;
-            font-size: 0.9em;
-            color: #ccc;
-        }
-        .left-aligned h4 {
-            margin-bottom: 0px;
-        }
+    .article-entry h3 a {
+        color: #004276;
+        text-decoration: none;
+        font-weight: bold;
+    }
 
-    </style>
+    .article-entry h3 a:hover {
+        text-decoration: underline;
+    }
+
+    .article-entry p {
+        margin: 5px 0;
+    }
+
+    .article-entry a.doi-link {
+        color: black;
+        text-decoration: none;
+    }
+
+    .article-entry a.doi-link:visited {
+        color: black;
+    }
+
+    .article-entry a.doi-link:hover {
+        color: black;
+        text-decoration: none;
+    }
+
+    .article-entry {
+        margin-bottom: 20px;
+        padding: 15px 20px;
+        border: 1px solid #ddd;
+        border-radius: 6px;
+        background: #fff;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    }
+
+    .article-entry h3 {
+        margin-top: 0;
+        font-size: 1.1em;
+    }
+
+    .article-entry h3 a {
+        color: #004276;
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+    .article-entry h3 a:hover {
+        text-decoration: underline;
+    }
+
+    .article-entry:not(:last-child) {
+        margin-bottom: 25px;
+    }
+
+    .article-type {
+        display: inline-block;
+        background: #801c24;
+        color: white;
+        font-size: 0.75em;
+        font-weight: bold;
+        padding: 4px 8px;
+        border-radius: 4px;
+        margin-bottom: 8px;
+    }
+
+    .right-section.indexing img {
+        max-width: 75%;
+        height: auto;
+        display: block;
+        margin: 10px auto;
+        padding-bottom: 15px;
+    }
+
+
+</style>
 </head>
 <body>
 
+
 <header>
-    <img src="SJSRLogoT.png" alt="STA Journal Logo" class="logo">
-    <h1>STA Journal of Student Research</h1>
-    <p>One Discovery at a Time</p>
+    <div class="header-inner">
+        <img src="SJSRLogoT.png" alt="STA Journal Logo" class="logo">
+        <div class="header-text">
+            <h1>STA Research Club</h1>
+            <p>One Discovery at a Time</p>
+        </div>
+    </div>
 </header>
 
-<nav>
-    <a href="#welcome">Home</a>
-    <a href="#issues">Past Issues</a>
-    <a href="#submit">Submit</a>
-    <a href="#team">Our Team</a>
-    <a href="#join">Join Us</a>
-</nav>
-
-<main id="welcome">
-    <h2>Welcome to Our Journal!</h2>
-    <p class="intro-text">The STA Journal of Student Research (SJSR) is a research journal open to all fields of study. Our mission is to showcase original thinking, inquiry, and exploration by students at St. Thomas Aquinas Regional Secondary School. Whether you're conducting scientific experiments, analyzing historical events, exploring literature, or diving into computer science, we welcome your work.</p>
-</main>
-
-<section id="issues" class="grey-section">
-    <h2>Past Issues</h2>
-    <p>No Issues Yet!</p>
-</section>
-
-<main id="submit">
-    <h2>Submission Guidelines</h2>
-    <div class="left-aligned">
-        <h3>Eligibility</h3>
-        <ul>
-            <li>Any currently enrolled student at St. Thomas Aquinas Regional Secondary School.</li>
-            <li>All work must be completed independently, outside of standard classwork or graded assignments.</li>
-            <li>Students may choose to work with a mentor (teacher, university professor, professional, etc.), but mentorship is not required.</li>
-            <li>Students may work individually or in groups.</li>
-        </ul>
-
-        <h3>What We Accept</h3>
-        <p>We currently accept:</p>
-        <ul>
-            <li>Original Research Articles.</li>
-            <li>Review (Literature Review) Articles.</li>
-        </ul>
-        <p>(Please see Article Types for more details on each.)</p>
-        <h3>What We Do <em>Not</em> Accept</h3>
-        <p>If any of these things are submitted, it will be automatically be rejected:</p>
-        <ul>
-            <li>Class projects, lab reports, or papers submitted for a school grade.</li>
-            <li>Plagiarized or AI-generated content.</li>
-            <li>Previously published work in another journal or magazine (including online platforms with formal publication).</li>
-        </ul>
-        <h3>Acceptable Article Types</h3>
-        <p>1. Research Articles</p>
-        <p>Research articles present original work conducted by the student(s). These may include experimental data, observational studies, theoretical work, surveys, or creative approaches to research in any academic discipline. For more information, please download this document.</p>
-        <p>2. Review Articles (Literature Review)</p>
-        <p>Review articles summarize and synthesize existing research on a specific topic. Rather than presenting new data, these articles should offer insight into trends, gaps, or debates in the field. For more information, please download this document.</p>
+<div class="journal-header">
+    <img src="SJSRCover.png" alt="Journal Cover" class="journal-cover">
+    <div class="journal-info">
+        <h1>STA Journal of Student Research</h1>
+        <p>The STA Journal of Student Research (SJSR) is a peer-reviewed, student-ran journal that showcases original research, reviews, and creative scholarship from students of St. Thomas Aquinas Regional Secondary School.</p>
+        <p>Editor-in-Chief: Yunjae Kim<br>
+            Sponsored by:
+        </p>
+        <p><strong>ISSN (print):</strong><br>
+           <strong>ISSN (online):</strong></p>
+        <p>Abbreviation: <i>STA J. Stud. Res.</i></p>
+        <p>Email: editorial.sjsr@gmail.com</a></p>
     </div>
+</div>
 
-<main id="team"class="grey-section">
-    <h2>Our Team</h2>
-    <div class="team-container">
-        <div class="team-member">
-            <h3>Yunjae Kim</h3>
-            <p>Student</p>
-            <p class="position">Founder, President, Editor, Section Editor (Physics, Mathematics, History)</p>
-            <p>kimyunj@aquinas.org</p>
+<div class="container">
+    <div class="main-box">
+        <div class="tab-menu">
+            <button class="tab-link active" data-tab="articles">Articles</button>
+            <button class="tab-link" data-tab="archive">Archive</button>
+            <button class="tab-link" data-tab="aims">Aims & Scope</button>
+            <button class="tab-link" data-tab="guidelines">Guidelines</button>
+            <button class="tab-link" data-tab="team">Editorial Team</button>
+            <button class="tab-link" data-tab="joinus">Join Us</button>
         </div>
-        <div class="team-member">
-            <h3>Christian Marrington</h3>
-            <p>Student</p>
-            <p class="position">Section Editor (Computer Science, Robotics), Reviewer</p>
-            <p>marringtonchri@aquinas.org</p>
+        <div class="tab-content" id="articles">
+            <h2>Latest Articles</h2>
+            <div id="article-list"></div>
+
+            <div id="pagination" style="margin-top:20px; text-align:center;">
+            <button id="prev-btn" disabled>Previous</button>
+            <button id="next-btn">Next</button>
+        </div>
+        </div>
+        <div class="tab-content" id="archive" style="display:none;">
+            <h2>Archive</h2>
+            <p>Archive will be updated once the first issue is completed.</p>
+        </div>
+        <div class="tab-content" id="aims" style="display:none;">
+            <h2>Aims & Scope</h2>
+            <p>The STA Journal of Student Research (SJSR) is a multidisciplinary, student-ran publication dedicated to showcasing the original research, reviews, and scholarly work of students at St. Thomas Aquinas Regional Secondary School. Our mission is to provide a platform where students can explore their academic interests, engage in critical inquiry, and share discoveries with a broader community of peers, educators, and researchers.</p>
+            <p>The journal accepts submissions from all fields of study, including but not limited to:</p>
+            <ul>
+                <li>Natural Sciences, Mathematics, and Medicine</li>
+                <li>Social Sciences and Humanities</li>
+                <li>Engineering, Technology, and Computer Science</li>
+                <li>Economics, Busines, and Finance</li>
+                <li>Arts, Literature, and Creative Scholarship</li>
+            </ul>
+            <p>The Journal invites original research papers and review articles that are not published or being considered for publication elsewhere. The Journal publishes new issues twice a year, in January and July. </p>
+        </div>
+        <div class="tab-content" id="guidelines" style="display:none;">
+            <h2>Submission Guidelines</h2>
+            <h3>Eligibility</h3>
+            <ul>
+                <li>Any currently enrolled student at St. Thomas Aquinas Regional Secondary School.</li>
+                <li>All work must be completed independently, outside of standard classwork or graded assignments.</li>
+                <li>Students may choose to work with a mentor (teacher, university professor, professional, etc.), but mentorship is not required.</li>
+                <li>Students may work individually or in groups (working with those not enrolled at St. Thomas Aquinas Regional Secondary School is acceptable).</li>
+            </ul>
+
+            <h3>What We Accept</h3>
+            <p>We currently accept:</p>
+            <ul>
+                <li>Original Research.</li>
+                <li>Review Articles.</li>
+                <li>Creative Scholarship.</li>
+            </ul>
+
+            <h3>What We Do <i>Not</i> Accept</h3>
+            <p>If any of these things are submitted, it will be automatically be rejected:</p>
+            <ul>
+                <li>Class projects, lab reports, or papers submitted for a school grade.</li>
+                <li>Plagiarized or AI-generated content.</li>
+                <li>Previously published work in another journal or magazine (including online platforms with formal publication).</li>
+            </ul>
+
+            <h3>Submitting Your Manuscript</h3>
+            <p>Manuscripts should be prepared as word/google documents in doc/docx format only. All submissions should be emailed to editorial.sjsr@gmail.com.</p>
+        
+            <h3>How to Prepare Your Manuscript</h3>
+            <p>All manuscripts need to include:</p>
+            <h4>Title Page</h4>
+            <p>The first page of a manuscript is the title page which should contain: title of the manuscript, authors' full names, affiliations of all authors, and information for correspondance.</p>
+            <ul>
+                <li>The title of the manuscript should be clear, concise and informative.</li>
+                <li>Provide the name(s) of authors as First Name (Given name) -Middle Name- Last name (Family name/Surname) for each author and check that all names are accurately spelled.</li>
+                <li>Present the author's affiliation (academic institution, company, etc) below the names of authors. Indicate all affiliations with superscript letter immediately after the author's name and in front of the appropriate affiliation address.</li>
+                <li>Clearly indicate who will handle correspondence at all stages of refereeing and publication, and post-publication.</li>
+                <li>Provide the e-mail address of each author.</li>
+            </ul>
+            <h4>Abstract</h4>
+            <p>The second page of manuscript should contain the abstract and keywords. The abstract should be informative, and summarize the paper. It is recommended that you write this last.</p>
+            <ul>
+                <li>The abstract should not more than 250 words in length.</li>
+                <li>Abstract should briefly present the purpose of the paper, state the scope of the experiments (if any), indicate significant results, and summarize major findings and conclusions.</li>
+                <li>An abstract is often presented separately from the article, so it must be able to stand alone. Therefore avoid references/citations in the abstract.</li>
+                <li>Provide four-six keywords that relates to the paper.</li>
+            </ul>
+            <h4>Introduction</h4>
+            <p>This should be state the objectives of the work and provide an adequate background. Introduction should clearly state the hypothesis or purpose statement, how and why the purpose or hypothesis was developed and why the author thinks it important.</p>
+            <h4>Conclusion</h4>
+            <p>This should clearly explain the main conclusions of the work highlighting its importance and relevance. It should be short and concise but should not repeat the abstract. Generally, the conclusion does not cite references.</p>
+            <h4>References: Modified MLA Style</h4>
+            <p> Refernces should be cited in the order they appear in the text. Instead of tradiational MLA in-text citation, the source(s) should be indicated as [number]. For exmaple, "... which is supported by previous studies [4, 5], which found..." and "... previous research conducted only examine idealized scenarios [13-16]." The actual authors can be referred to, but the reference number(s) must always be given: for example, 'Shug et al [8] obtained...'</p>
+            <p>It is <b>highly recommended</b> that references are articles from other academic journals, texts, etc.</p>
+            <p>For the references page, please refer to <a href="https://guides.library.unr.edu/mlacitation">guides.library.unr.edu/mlacitation</a></p>
+
+            <h4>Acknowledgements</h4>
+            <p>All acknowledgments (if any) should be included at the very end of the paper before the references. No authors should be mentioned here.</p>
+
+            <p><b>For Research Articles, Include:</b></p>
+            <h4>Methodology</h4>
+            <p>This section must contain specific details about the materials studied, instruments used, and related experimental details which allows other researchers to reproduce the results. Obtain permission for all fully borrowed, adapted, and modified tables and provide credit in the footnote. If any human study was carried out, a written consent should be taken from the human subjects involved in the study ensuring their acceptance in the study and publication of relevant datas/photos/images in the journal.</p>
+            <h4>Results and Discussion</h4>
+            <p>The results should be concisely presented. Results and discussion may be separate or combined based on the author's discretion. Tables and figures should be designed to maximize the comprehension of the experimental data. The interpreted results should be explained clearly in discussions and should relate them to the existing knowledge in the field as clearly as possible. Tables, graphs and figures (illustrations) should be inserted in to the main text at respective place they should appear when published and should have appropriate numbers and titles with an explanatory heading. Labels of the table, graph and figures must be in the text form and should not form part of the image.</p>
+            
+            <p><b>For Review Articles:</b></p>
+            <p>Organization of the review article is at the author's discretion, but must include all require sections.</p>
+        </div>
+        <div class="tab-content" id="team" style="display:none;">
+            <h2>Editorial Team</h2>
+            <p><strong>Yunjae Kim</strong> (kimyunj@aquinas.org): Physics, mathematics, history</p>
+            <p><strong>Christian Marrington</strong> (marringtonchri@aquinas.org): Computer science, robotics</p>
+        </div>
+        <div class="tab-content" id="joinus" style="display:none;">
+            <h2>Join Us</h2>
+            <p>Interested in being part of the editorial team? The STA Journal of Student Research is currently looking for new editors! If you're interested in editing and publishing research, we'd love to hear from you.</p>
+            <p>To apply: Email your name, grade, and a brief statement of interest to editorial.sjsr@gmail.com. Make sure to mention which discipline you're applying for and attach any relevant work or experience.</p>
+            <div>
+                <h3>Job Description</h3>
+                <ul>
+                    <li>Reviews submissions in a specific academic discipline.</li>
+                    <li>Provides subject-specific feedback and helps make publication decisions.</li>
+                    <li>Usies LaTeX to edit and format manuscripts prior to publication.</li>
+                </ul>
+            </div>
+            <div>
+                <h3>Requirements</h3>
+                <ul>
+                    <li>Must be a currently enrolled student at St. Thomas Aquinas Regional Secondary School.</li>
+                    <li>Must have published a related article with the Journal in the subject they wish to edit.</li>
+                    <li>Strong academic background for the subject is recommended.</li>
+                    <li>Strong academic writing, attention to detail, and commitment to deadlines are essential.</li>
+                </ul>
+                <p>Applications will be considered by other members of the editorial team.</p>
+            </div>
+
         </div>
     </div>
-    
-</main>
 
-<main id="join">
-    <h2>Join Us</h2>
-    <p class="left-aligned">Interested in being part of the editorial team? The STA Journal of Student Research is currently looking for new members! If you're excited about reviewing, editing, and publishing student research, we’d love to hear from you.</p>
-    <p class="left-aligned"><strong>To apply:</strong> Email your name, grade, and a brief statement of interest to stajournalofstudentresearch@gmail.com. Make sure to mention which position you're applying for and attach any relevant work or experience.</p>
-
-    <div class="left-aligned">
-        <h3>Available Roles & Requirements</h3>
-
-        <h4>Editor</h4>
-        <ul>
-            <li>Edits accepted articles for grammar, clarity, and coherence.</li>
-            <li>Ensures articles meet SJSR formatting standards.</li>
-            <li><strong>Must be comfortable using LaTeX</strong> for formatting research papers.</li>
-            <li>Attention to detail and strong writing/editing skills required.</li>
-        </ul>
-
-        <h4>Section Editor</h4>
-        <ul>
-            <li>Reviews submissions in a specific academic discipline (e.g. physics, psychology, history, etc.).</li>
-            <li>Provides subject-specific feedback and helps make publication decisions.</li>
-            <li><strong>Must have completed or currently taking (with 86%+ average) at least a Grade 12 or AP-level course</strong> in the subject area they wish to edit.</li>
-            <li>Should be familiar with academic research and terminology in their field.</li>
-        </ul>
-
-        <h4>Reviewer</h4>
-        <ul>
-            <li>Reads and assesses submissions for originality, clarity, and academic rigor.</li>
-            <li>Works with editors to recommend acceptance, revision, or rejection.</li>
-            <li>Must have strong reading comprehension and critical thinking skills.</li>
-            <li>Prior research experience is an asset, but not required.</li>
-        </ul>
+    <div class="right-box">
+        <div class="right-section">
+            <h3>Call for Papers</h3>
+            <ul>
+                <li>Current Issue: Vol 1, Issue 1, January 2026</li>
+                <li>Submissions: up to December 15<sup>th</sup>, 2025</li>
+                <li><a class="tab-link" data-tab="guidelines">Submission Guidelines</a></li>
+            </ul>
+        </div>
+        <div class="right-section indexing">
+            <h3>Indexing</h3>
+            <img src="OpenAIRE.png" alt="OpenAIRE Indexing">
+        </div>
     </div>
-</main>
+</div>
 
 <footer>
-    <img src="SJSRLogoT.png" alt="STA Journal Logo">
     <p>St. Thomas Aquinas Regional Secondary School</p>
     <p>541 West Keith Road, North Vancouver, BC V7M 1M5</p>
-    <p>stajournalofstudentresearch@gmail.com</p>
+    <p>editorial.sjsr@gmail.com</p>
 </footer>
 
+<script>
+document.querySelectorAll(".tab-link").forEach(btn => {
+    btn.addEventListener("click", function(e) {
+        e.preventDefault();
+        
+        document.querySelectorAll(".tab-content").forEach(tc => tc.style.display = "none");
+        
+        document.querySelectorAll(".tab-menu button").forEach(b => b.classList.remove("active"));
+        
+        document.getElementById(this.dataset.tab).style.display = "block";
+
+        const topTab = document.querySelector(`.tab-menu button[data-tab="${this.dataset.tab}"]`);
+        if (topTab) {
+            topTab.classList.add("active");
+        }
+    });
+});
 
 
+    const articles = [
+    {
+        type: "Original Research",
+        title: "Modeling the Sinusoidal Nature of Simple Pendulums",
+        authors: "Yunjae Kim",
+        citation: "STA Journal of Student Research, 2025 1(1), pp. 1-5",
+        published: "Published Online: August 17, 2025",
+        doi: "10.5281/zenodo.16888273",
+        doiLink: "https://doi.org/10.5281/zenodo.16888273"
+    },
 
+    // Add more articles here...
+
+];
+
+const articlesPerPage = 10;
+let currentPage = 1;
+
+function renderArticles() {
+    const articleList = document.getElementById("article-list");
+    articleList.innerHTML = "";
+
+    const start = (currentPage - 1) * articlesPerPage;
+    const end = start + articlesPerPage;
+    const pageArticles = articles.slice(start, end).reverse();
+
+    pageArticles.forEach(article => {
+        const div = document.createElement("div");
+        div.classList.add("article-entry");
+        div.innerHTML = `
+            <span class="article-type">${article.type}</span>
+            <h3><a href="${article.doiLink}" target="_blank">${article.title}</a></h3>
+            <p><strong>${article.authors}</strong></p>
+            <p><em>${article.citation}</em></p>
+            <p>${article.published}</p>
+            <p><a href="${article.doiLink}" class="doi-link" target="_blank">${article.doi}</a></p>
+        `;
+        articleList.appendChild(div);
+    });
+
+    document.getElementById("prev-btn").disabled = currentPage === 1;
+    document.getElementById("next-btn").disabled = end >= articles.length;
+}
+
+document.getElementById("prev-btn").addEventListener("click", () => {
+    if (currentPage > 1) {
+        currentPage--;
+        renderArticles();
+    }
+});
+
+document.getElementById("next-btn").addEventListener("click", () => {
+    if ((currentPage * articlesPerPage) < articles.length) {
+        currentPage++;
+        renderArticles();
+    }
+});
+
+
+renderArticles();
+</script>
 
 </body>
 </html>
