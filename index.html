@@ -165,7 +165,7 @@
         flex-direction: column;
         align-items: flex-start;
         text-align: left;
-        max-width: 400px;
+        max-width: 500px;
     }
 
     .article-entry {
@@ -259,16 +259,24 @@
             padding-left: 12px;
             padding-right: 12px;
         }
+
+        header, footer {
+            padding-left: 0;
+            padding-right: 0;
+        }
+
         .journal-header {
             flex-direction: column;
             align-items: center;
             text-align: center;
         }
+
         .journal-cover {
             width: 100%;
             max-width: 200px;
             height: auto;
         }
+
         .journal-info {
             text-align: center;
         }
@@ -276,19 +284,22 @@
         .container {
             flex-direction: column;
         }
+
         .right-box {
             width: 100%;
             margin-top: 20px;
         }
     }
+
     @media (max-width: 600px) {
         .header-inner {
-            flex-direction: column;
-            text-align: center;
+            flex-direction: row;
+            text-align: left;
         }
+
         .header-text {
-            align-items: center;
-            text-align: center;
+            align-items: flex-start;
+            text-align: left;
         }
     }
 
