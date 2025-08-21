@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>STA Journal of Student Research</title>
-<link rel="icon" href="SJSRLogoT.png" type="image/png">
+<link rel="icon" href="STAAS.png" type="image/png">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
 <meta name="description" content="The STA Journal of Student Research (SJSR) is a peer-reviewed, student-ran journal that showcases original research, reviews, and creative scholarship from students of St. Thomas Aquinas Regional Secondary School.">
 <style>
@@ -340,7 +340,102 @@
         }
     }
 
+    #issue-download {
+    text-align: center;
+    margin: 20px 0;
+    }
 
+    #download-pdf {
+        display: inline-block;
+        background: #801c24;
+        color: white;
+        padding: 12px 24px;
+        border-radius: 6px;
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 1.1em;
+        transition: background-color 0.3s ease;
+    }
+
+    #download-pdf:hover {
+        background: #6a161d;
+        text-decoration: none;
+    }
+
+    .archive-article {
+        margin-bottom: 20px;
+        padding: 15px 20px;
+        border: 1px solid #ddd;
+        border-radius: 6px;
+        background: #fff;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    }
+
+    .archive-article:not(:last-child) {
+        margin-bottom: 25px;
+    }
+
+    .archive-article h4 {
+        margin-top: 0;
+        font-size: 1.1em;
+        margin: 0;
+    }
+
+    .archive-article h4 a {
+        color: #004276;
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+    .archive-article h4 a:hover {
+        text-decoration: underline;
+    }
+
+    .archive-article p {
+        margin: 5px 0;
+    }
+
+    .archive-article a.doi-link {
+        color: black;
+        text-decoration: none;
+    }
+
+    .archive-article a.doi-link:visited {
+        color: black;
+    }
+
+    .archive-article a.doi-link:hover {
+        color: black;
+        text-decoration: none;
+    }
+
+    .volume-issue-selector {
+        background: #f8f8f8;
+        padding: 15px;
+        border-radius: 6px;
+        margin-bottom: 20px;
+    }
+
+    .volume-issue-selector select {
+        padding: 8px;
+        margin-right: 10px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+    }
+
+    .volume-issue-selector button {
+        background: #801c24;
+        color: white;
+        border: none;
+        padding: 8px 16px;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+    .volume-issue-selector button:disabled {
+        background: #ccc;
+        cursor: not-allowed;
+    }
 
 
 </style>
@@ -350,10 +445,10 @@
 
 <header>
     <div class="header-inner">
-        <img src="SJSRLogoT.png" alt="STA Journal Logo" class="logo">
+        <img src="STAAS.png" alt="STA Journal Logo" class="logo">
         <div class="header-text">
-            <h1>STA Research Club</h1>
-            <p>One Discovery at a Time</p>
+            <h1>Academic Society of STA</h1>
+            <p>Veritatis Studium Prosequi</p>
         </div>
     </div>
 </header>
@@ -363,11 +458,9 @@
     <div class="journal-info">
         <h1>STA Journal of Student Research</h1>
         <p>The STA Journal of Student Research (SJSR) is a peer-reviewed, student-ran journal that showcases original research, reviews, and creative scholarship from students of St. Thomas Aquinas Regional Secondary School.</p>
-        <p>Editor-in-Chief: Yunjae Kim<br>
-            Sponsored by:
-        </p>
-        <p><strong>ISSN (print):</strong><br>
-           <strong>ISSN (online):</strong></p>
+        <p>Editor-in-Chief: Yunjae Kim</p>
+        <p>Sponsored by:</p>
+        <p><strong>ISSN:</strong><br></p>
         <p>Abbreviation: <i>STA J. Stud. Res.</i></p>
         <p>Email: editorial.sjsr@gmail.com</a></p>
     </div>
@@ -395,8 +488,25 @@
         </div>
         <div class="tab-content" id="archive" style="display:none;">
             <h2>Archive</h2>
-            <p>Archive will be updated once the first issue is completed.</p>
-        </div>
+            <div class="volume-issue-selector">
+                <h3>Select Volume and Issue</h3>
+                <select id="volume-select">
+                    <option value="">Select Volume</option>
+                    <option value="1">Volume 1 (2026)</option>
+                </select>
+                <select id="issue-select" disabled>
+                    <option value="">Select Issue</option>
+                    <option value="1">Issue 1 (January 2026)</option>
+                </select>
+                <button id="load-issue-btn" disabled>Load Issue</button>
+            </div>
+            <div id="issue-download" style="display: none; margin: 20px 0; text-align: center;">
+                <a href="#" id="download-pdf" class="submit-btn" target="_blank">
+                    Download Full Issue (PDF)
+                </a>
+            </div>
+            <div id="archive-articles" style="margin-top: 20px;"></div>
+            </div>
         <div class="tab-content" id="aims" style="display:none;">
             <h2>Aims & Scope</h2>
             <p>The STA Journal of Student Research (SJSR) is a multidisciplinary, student-ran publication dedicated to showcasing the original research, reviews, and scholarly work of students at St. Thomas Aquinas Regional Secondary School. Our mission is to provide a platform where students can explore their academic interests, engage in critical inquiry, and share discoveries with a broader community of peers, educators, and researchers.</p>
@@ -515,7 +625,7 @@
             <h3>Call for Papers</h3>
             <ul>
                 <li>Current Issue: Vol 1, Issue 1, January 2026</li>
-                <li>Submissions: up to December 15<sup>th</sup>, 2025</li>
+                <li>Submissions: up to January 3<sup>rd</sup>, 2025</li>
                 <li><a class="tab-link" data-tab="guidelines">Submission Guidelines</a></li>
             </ul>
         </div>
@@ -611,6 +721,103 @@ document.getElementById("next-btn").addEventListener("click", () => {
 
 
 renderArticles();
+
+const archiveData = {
+    "1": { // Volume 1
+        "1": { // Issue 1
+            title: "Volume 1, Issue 1 - January 2026",
+            pdfLink: "https://example.com/path/to/volume1-issue1.pdf", // Add your PDF link here
+            articles: [
+                {
+                    type: "Original Research",
+                    title: "Modeling the Sinusoidal Nature of Simple Pendulums",
+                    authors: "Yunjae Kim",
+                    citation: "STA Journal of Student Research, 2025 1(1), pp. 1-5",
+                    published: "Published: January 2026",
+                    doi: "10.5281/zenodo.16888273",
+                    doiLink: "https://doi.org/10.5281/zenodo.16888273"
+                }
+                // Add more articles for this issue here...
+            ]
+        }
+        // Add more issues for Volume 1 here...
+    }
+    // Add more volumes here...
+};
+
+function displayArchiveArticles(volume, issue) {
+    const issueData = archiveData[volume][issue];
+    const archiveContainer = document.getElementById('archive-articles');
+    const downloadSection = document.getElementById('issue-download');
+    const downloadLink = document.getElementById('download-pdf');
+    
+    // Show download button with PDF link
+    if (issueData.pdfLink) {
+        downloadLink.href = issueData.pdfLink;
+        downloadSection.style.display = 'block';
+    } else {
+        downloadSection.style.display = 'none';
+    }
+    
+    archiveContainer.innerHTML = `<h3>${issueData.title}</h3>`;
+    
+    if (issueData.articles.length === 0) {
+        archiveContainer.innerHTML += '<p>No articles found for this issue.</p>';
+        return;
+    }
+    
+    // Display articles in chronological order (first to last)
+    issueData.articles.forEach(article => {
+        const articleDiv = document.createElement('div');
+        articleDiv.classList.add('archive-article');
+        articleDiv.innerHTML = `
+            <span class="article-type">${article.type}</span>
+            <h4><a href="${article.doiLink}" target="_blank">${article.title}</a></h4>
+            <p><strong>${article.authors}</strong></p>
+            <p><em>${article.citation}</em></p>
+            <p>${article.published}</p>
+            <p><a href="${article.doiLink}" class="doi-link" target="_blank">${article.doi}</a></p>
+        `;
+        archiveContainer.appendChild(articleDiv);
+    });
+}
+
+document.getElementById('volume-select').addEventListener('change', function() {
+    const volumeSelect = document.getElementById('volume-select');
+    const issueSelect = document.getElementById('issue-select');
+    const loadBtn = document.getElementById('load-issue-btn');
+    const downloadSection = document.getElementById('issue-download');
+    
+    // Hide download button when changing volume
+    downloadSection.style.display = 'none';
+    
+    if (volumeSelect.value) {
+        issueSelect.disabled = false;
+        loadBtn.disabled = !issueSelect.value;
+    } else {
+        issueSelect.disabled = true;
+        issueSelect.value = "";
+        loadBtn.disabled = true;
+    }
+});
+
+document.getElementById('issue-select').addEventListener('change', function() {
+    const loadBtn = document.getElementById('load-issue-btn');
+    const downloadSection = document.getElementById('issue-download');
+    
+    // Hide download button when changing issue
+    downloadSection.style.display = 'none';
+    loadBtn.disabled = !this.value;
+});
+
+document.getElementById('load-issue-btn').addEventListener('click', function() {
+    const volume = document.getElementById('volume-select').value;
+    const issue = document.getElementById('issue-select').value;
+    
+    if (volume && issue && archiveData[volume] && archiveData[volume][issue]) {
+        displayArchiveArticles(volume, issue);
+    }
+});
 </script>
 
 </body>
