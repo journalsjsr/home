@@ -726,7 +726,8 @@ const archiveData = {
     "1": { // Volume 1
         "1": { // Issue 1
             title: "Volume 1, Issue 1 - January 2026",
-            pdfLink: "https://example.com/path/to/volume1-issue1.pdf", // Add your PDF link here
+            pdfLink: "", // Add your PDF link here
+            pdfReady: false, // Set to false initially
             articles: [
                 {
                     type: "Original Research",
@@ -751,8 +752,8 @@ function displayArchiveArticles(volume, issue) {
     const downloadSection = document.getElementById('issue-download');
     const downloadLink = document.getElementById('download-pdf');
     
-    // Show download button with PDF link
-    if (issueData.pdfLink) {
+    // Show download button only if PDF is ready and link is provided
+    if (issueData.pdfReady && issueData.pdfLink) {
         downloadLink.href = issueData.pdfLink;
         downloadSection.style.display = 'block';
     } else {
